@@ -1,0 +1,23 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <a href="{% url 'tasks' %}">&#8592; Wstecz</a>
+</div>
+
+<div class="card-body">
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <script>
+            // Dodaj skrypt, aby zainicjować kalendarz
+            document.addEventListener('DOMContentLoaded', function() {
+                $('.datepicker').datepicker();
+            });
+        </script>
+        <input class="button" type="submit" value="Zatwierdź">
+    </form>
+</div>
+
+{% endblock content %}
